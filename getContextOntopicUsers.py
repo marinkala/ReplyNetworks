@@ -12,7 +12,7 @@ chunksize=5000
 steps=40991
 #204,957,018 tweetes reuires 21 slices of this running (204957018/(5000*2000))
 
-for slice in range(12,22):
+for slice in range(19,22):
 	ec_al=pd.DataFrame()
 	print slice
 
