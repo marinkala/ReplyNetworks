@@ -20,6 +20,7 @@ for slice in range(19,22):
 		try:        
 			tp=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i,\
 			nrows=chunksize,header=None)
+			print chunksize*i        
 		except pd.parser.CParserError:
 			tp=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i+1,\
 			nrows=1,header=None)            
