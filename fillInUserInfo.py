@@ -4,7 +4,7 @@ import ast
 import collections as c
 import matplotlib.pyplot as plt
 
-convs=pd.read_csv('../data/bbAllFullConvosAWCorrectTimeZone.csv',sep=';')
+convs=pd.read_csv('../data/bbAllFullConvosMoreAWCorrectTimeZone.csv',sep=';')
 convs.allNames=convs.allNames.apply(lambda x: ast.literal_eval(x))
 sup=pd.read_csv('../data/bbContextOntopicRepliesBothSidesDF.csv',sep=';')
 
@@ -49,4 +49,4 @@ for i in xrange(5):
             convs.loc[index,tweetCount]=t[0]
         else:
             convs.loc[index,tweetCount]=np.nan
-convs.to_csv('../data/bbAllFullConvosAWCorrectTimeZone.csv',sep=';', index=False)
+convs.to_csv('../data/bbAllFullConvosMoreAWCorrectTimeZone.csv',sep=';', index=False)
