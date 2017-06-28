@@ -12,23 +12,21 @@ datatypes={'0': int, '2': int, '3': bool, '4': int, '5': int, '6': int, '7': int
 
 chunksize=5000
 steps=40991
-#204,957,018 tweetes reuires 21 slices of this running (204957018/(5000*2000))
 
-for slice in range(19,22):
+for slice in range(20,21):
 	ec_al=pd.DataFrame()
 	print slice
 
-	for i in xrange(slice*iters,(slice+1)*iters):
-		try:        
-			tp=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i,\
-			dtype=datatypes, nrows=chunksize,header=None)
+	for i in xrange(slice*iters,steps+1):#(slice+1)*iters):        
+		tp=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i,\
+		dtype=datatypes, nrows=chunksize,header=None)
 			#print chunksize*i        
-		except pd.parser.CParserError:
+		'''except pd.parser.CParserError:
 			tp=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i+1,\
 			dtype=datatypes, nrows=1,header=None)            
 			tp2=pd.read_csv('/home/mako0970/ReplyPaperNew/data/Sandy_context_tweetsUserID.csv',sep=';',skiprows=chunksize*i+3,\
 			dtype=datatypes, nrows=chunksize-3,header=None)
-			tp.append(tp2)             
+			tp.append(tp2)'''             
 		print i, "th chunk"
     
 		#bb=tp[tp.user_id.isin(bbRepliers)]
